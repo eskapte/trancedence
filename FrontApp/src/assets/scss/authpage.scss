@@ -1,0 +1,100 @@
+@import "./var.scss";
+
+#auth-page
+{
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: clamp(320px, 100%, 570px);
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    header h1
+    {
+        color: black;
+        margin-top: 1.5vh;
+        font-size: clamp(24px, 10vw, 50px);
+    }
+
+    .auth-form
+    {
+        box-sizing: border-box;
+        background-color: $dark;
+        border-radius: 20px;
+        padding: 2em Min(4em, 10%);
+
+        @media (max-width: 570px)
+        {
+            border-radius: 0;
+        }
+
+        width: 100%;
+
+        h2
+        {
+            font-weight: bold;
+            font-size: clamp(24px, 10vw, 36px);
+        }
+    }
+
+    .auth-form form
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        label
+        {
+            font-size: 18px;
+            font-weight: 100;
+            width: 100%;
+        }
+
+        label input
+        {
+            margin-top: 0.5vh;
+            margin-bottom: 0.5vh;
+            font-size: clamp(14px, 2vw ,20px);
+            width: 100%;
+            padding: 0.2em 0.4em;
+            box-sizing: border-box;
+            outline-color: $yellow;
+            border-radius: 5px;
+            border: none;
+
+            &::placeholder {opacity: 0.5;}
+        }
+
+        a, button {align-self: center; margin-top: 1em;}
+
+        button
+        {
+            width: Max(50%, calc(max-content + 10px));
+            font-size: 18px;
+            border-radius: 20px;
+            background-color: $yellow;
+            border: none;
+            color: white;
+            padding: 0.5em 1em;
+            align-self: center;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease-out;
+
+            &:hover
+            {
+                box-shadow: 0 0 15px 1px $yellow;
+            }
+        }
+
+        a
+        {
+            border-bottom: 1px solid $dark;
+            transition: all 0.3s ease;
+            &:hover { border-bottom: 1px solid $yellow; }
+        }
+    }
+}

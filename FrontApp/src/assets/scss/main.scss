@@ -1,0 +1,101 @@
+@import "./regpage.scss";
+@import "./authpage.scss";
+@import "./nav.scss";
+@import "./profile.scss";
+@import "./messages.scss";
+@import "./var.scss";
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+#root, body
+{
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body
+{
+    background-color: $yellow;
+    color: white;
+    overflow-y: hidden;
+}
+
+#root
+{
+    display: flex;
+}
+
+a
+{
+    color: $yellow;
+    text-decoration: none;
+}
+
+.main-window
+{
+    box-sizing: border-box;
+    width: clamp(320px, 100%, 510px);
+    min-width: 320px;
+    border: 2px solid $gray;
+    border-top: none;
+    border-bottom: none;
+    height: 100vh;
+
+    header
+    {
+        width: 100%;
+        box-sizing: border-box;
+        background-color: $yellow;
+        color: white;
+        height: 60px;
+        min-height: 60px;
+
+        display: flex;
+        align-items: center;
+
+        svg
+        {
+            width: 40px;
+            height: 40px;
+            fill: white;
+            margin: auto 0 auto 1em;
+            transition: filter 0.2s ease;
+
+            @media (min-width: 800px)
+            {
+                display: none;
+            }
+
+            &:hover
+            {
+                filter: drop-shadow(0px 0px 20px white);
+            }
+        }
+
+        h2
+        {
+            margin: 0;
+            margin-top: -0.1em;
+            margin-left: 1em;
+            color: white;
+            font-weight: normal;
+        }
+    }
+}
+
+@media (max-width: 800px)
+{
+    #main-nav
+    {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        right: 100%;
+    }
+
+    main.main-window
+    {
+        width: 100%;
+    }
+}
