@@ -1,13 +1,10 @@
 import React from "react";
-import MenuBtn from "../../components/MenuBtn"
+import FriendsSection from "../../components/FriendsSection";
 
 const Friends: React.FC = () => {
     return (
         <section id='friends' className="main-window">
-            <header className="profile__header">
-                <MenuBtn/>
-                <h2 className="header__text">Друзья</h2>
-            </header>
+            <FriendsSection/>
         </section>
     )
 }

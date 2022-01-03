@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qfIWz3XhDUORqQQBv/vChYxmTnhfSjWSahMmnIaWV+O2t+WmRvpX+rYngMomdvgGzQqdDzbbGKZ+GBnrXeeChg==",
+  "dgSpecHash": "sX2ql40+uecBZQs4CPDkNtcqt4LoJwLTvwBdiAxyN0cmb9WWUePwU/SuL8IOy9pMgOxtm5WrRlp+yyAi/Rbj1g==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ft_transendence\\Backend_api\\ft_trancedence_Api\\backend_api.csproj",
   "expectedPackageFiles": [
@@ -31,6 +31,7 @@
     "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.logging.configuration\\3.1.21\\microsoft.extensions.logging.configuration.3.1.21.nupkg.sha512",
     "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.logging.console\\3.1.21\\microsoft.extensions.logging.console.3.1.21.nupkg.sha512",
+    "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.logging.debug\\5.0.0\\microsoft.extensions.logging.debug.5.0.0.nupkg.sha512",
     "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\3.1.21\\microsoft.extensions.options.configurationextensions.3.1.21.nupkg.sha512",
     "C:\\Users\\eskap\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",

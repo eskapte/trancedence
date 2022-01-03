@@ -1,8 +1,6 @@
-﻿using ft_trancedence_Api.Models;
-using ft_trancedence_Api.Models.Dtos;
+﻿using ft_trancedence_Api.Models.Dtos;
 using ft_trancedence_Api.Services.UserManager;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
@@ -52,6 +50,20 @@ namespace ft_trancedence_Api.Controllers
             }
 
             return Ok("Пользователь успешно создан!");
+        }
+
+        [HttpPost("logout")]
+        public async Task Logout([FromBody] string username)
+        {
+            try
+            {
+                await _userManager.Logout(username);
+            }
+            catch(Exception e)
+            {
+                _logger.LogError(e.Message);
+            }
+
         }
     }
 }

@@ -5,7 +5,6 @@ import { userAuth } from './actions';
 import { setUserToLocalStore } from '../../helpers';
 
 type AuthResponse = SagaReturnType<typeof auth>
-type RegResponse = SagaReturnType<typeof reg>
 
 function* login(action: IAuthSagaAction)
 {
@@ -24,8 +23,7 @@ function* login(action: IAuthSagaAction)
 function* newUser(action: IAuthSagaAction)
 {
     try {
-        const response: RegResponse = yield call(reg, action.payload)
-        const data: string = yield call(async() => await response);
+        yield call(reg, action.payload)
         yield put({type: AuthActionTypes.REGISTER})
         yield call(action.payload.redirect)
     }

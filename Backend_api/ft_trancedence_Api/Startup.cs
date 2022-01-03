@@ -3,12 +3,10 @@ using ft_trancedence_Api.Services.UserManager;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -22,7 +20,6 @@ namespace ft_trancedence_Api
         {
             Configuration = configuration;
         }
-
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -43,11 +40,6 @@ namespace ft_trancedence_Api
                 });
             });
 
-            services.AddControllers(options =>
-            {
-                //options.AllowEmptyInputInBodyModelBinding = true;
-            });
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(config =>
                 {
@@ -63,26 +55,15 @@ namespace ft_trancedence_Api
                     };
                 });
 
-            //services.AddAuthorization();
-
-            //services.AddSpaStaticFiles(config =>
-            //{
-            //    config.RootPath = "ReactApp/src";
-            //});
-
             services.AddScoped<UserManager>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-
-            //app.UseStaticFiles();
-            //app.UseSpaStaticFiles();
 
             app.UseRouting();
 
@@ -94,13 +75,6 @@ namespace ft_trancedence_Api
             {
                 endpoints.MapControllers();
             });
-
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "ReactApp";
-            //    spa.Options.DevServerPort = 3000;
-            //    spa.UseReactDevelopmentServer(npmScript: "start");
-            //});
         }
     }
 }

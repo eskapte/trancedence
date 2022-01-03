@@ -39,6 +39,7 @@
           "Microsoft.AspNetCore.SpaServices.Extensions": "5.0.12",
           "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.12",
+          "Microsoft.Extensions.Logging.Debug": "5.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.10",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -149,7 +150,7 @@
           "Microsoft.Extensions.Logging.Abstractions.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.Configuration.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.Console.Reference": "5.0.0.0",
-          "Microsoft.Extensions.Logging.Debug": "5.0.0.0",
+          "Microsoft.Extensions.Logging.Debug.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.EventLog": "5.0.0.0",
           "Microsoft.Extensions.Logging.EventSource": "5.0.0.0",
@@ -551,6 +552,13 @@
           "Microsoft.Extensions.Logging.Configuration": "3.1.21"
         }
       },
+      "Microsoft.Extensions.Logging.Debug/5.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0"
+        }
+      },
       "Microsoft.Extensions.Options/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
@@ -679,16 +687,8 @@
           "lib/netstandard2.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
         }
       },
-      "System.Collections.Immutable/5.0.0": {
-        "compile": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
-        }
-      },
-      "System.ComponentModel.Annotations/5.0.0": {
-        "compile": {
-          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
-        }
-      },
+      "System.Collections.Immutable/5.0.0": {},
+      "System.ComponentModel.Annotations/5.0.0": {},
       "System.Diagnostics.DiagnosticSource/5.0.1": {
         "runtime": {
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
@@ -1371,7 +1371,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Logging.Debug/5.0.0.0": {
+      "Microsoft.Extensions.Logging.Debug.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.Debug.dll": {}
         },
@@ -2600,6 +2600,13 @@
       "path": "microsoft.extensions.logging.console/3.1.21",
       "hashPath": "microsoft.extensions.logging.console.3.1.21.nupkg.sha512"
     },
+    "Microsoft.Extensions.Logging.Debug/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9dvt0xqRrClvhaPNpfyS39WxnW9G55l5lrV5ZX7IrEgwo4VwtmJKtoPiKVYKbhAuOBGUI5WY3hWLvF+PSbJp5A==",
+      "path": "microsoft.extensions.logging.debug/5.0.0",
+      "hashPath": "microsoft.extensions.logging.debug.5.0.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Options/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3264,7 +3271,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Logging.Debug/5.0.0.0": {
+    "Microsoft.Extensions.Logging.Debug.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

@@ -6,10 +6,11 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ft_trancedence_Api.Models.Auth;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace ft_trancedence_Api.Services.UserManager
 {
@@ -17,11 +18,13 @@ namespace ft_trancedence_Api.Services.UserManager
     {
         readonly IConfiguration _config;
         readonly ApplicationDbContext _dbContext;
+        readonly ILogger<UserManager> _logger;
 
-        public UserManager(IConfiguration configuration, ApplicationDbContext dbContext)
+        public UserManager(IConfiguration configuration, ApplicationDbContext dbContext, ILogger<UserManager> logger)
         {
             _config = configuration;
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         public async Task<JwtResponse> Auth(InputUserDto user)
@@ -35,6 +38,10 @@ namespace ft_trancedence_Api.Services.UserManager
             bool isCorrectPassword = BCrypt.Net.BCrypt.Verify(user.Password, findedUser.PasswordHash);
             if (!isCorrectPassword)
                 return new JwtResponse(error: "Неправильный пароль");
+
+            findedUser.IsOnline = true;
+
+            await _dbContext.SaveChangesAsync();
 
             return new JwtResponse(
                 userData: new UserDataDto { token =  GenerateJwtToken(findedUser), username = user.Username, avatar = findedUser.AvatarUrl}
@@ -56,6 +63,18 @@ namespace ft_trancedence_Api.Services.UserManager
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.Password) 
             });
 
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task Logout(string username)
+        {
+
+            var logoutUser = await _dbContext.Users.SingleOrDefaultAsync(u => u.Username == username);
+
+            if (logoutUser == null)
+                throw new Exception("User doesn't exist");
+
+            logoutUser.IsOnline = false;
             await _dbContext.SaveChangesAsync();
         }
 

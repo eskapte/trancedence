@@ -1,10 +1,21 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-const SearchBar: React.FC = () => {
+interface SearchBarProps {
+    name: string
+    placeholder?: string
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+const SearchBar: React.FC<SearchBarProps> = (props) => {
     return (
         <div className="search-bar__wrapper">
-            <input type="text" id='chat-search' name='chat-search' 
-                    placeholder="Поиск сообщений или пользователей"/>
+            <input 
+                type="text" 
+                name={props.name} 
+                placeholder={props.placeholder ?? "Поиск..."} 
+                className="search-bar"
+                onChange={(e) => props.onChange(e)}
+                />
         </div>   
     )
 }

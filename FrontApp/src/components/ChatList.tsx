@@ -13,9 +13,7 @@ const ChatList: React.FC = () => {
 
     return (
         <section className="message__list">
-            <header>
-                <h2>Последние:</h2>
-            </header>
+            <span className="message__filter">Последние:</span>
             <div className="chats">
             {
                 chatList.map(chat => <ChatItem key={chat.id} {...chat}/>)

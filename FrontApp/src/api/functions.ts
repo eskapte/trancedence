@@ -13,6 +13,9 @@ export async function reg(data:IAuthInput): Promise<AxiosResponse> {
     return response.data
 }
 
+export async function userLogout(username: string) {
+    await API.post("/auth/logout", JSON.stringify(username));
+}
 
 // export async function register(params: IAuthParams) : Promise<void> {
 //     const response = await apiPost("http://localhost:5000/api/auth/new_user", params);

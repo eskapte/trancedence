@@ -340,6 +340,20 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Logging.Console.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Debug/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Logging": "5.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.Options/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -1071,6 +1085,26 @@
         "microsoft.extensions.logging.console.nuspec"
       ]
     },
+    "Microsoft.Extensions.Logging.Debug/5.0.0": {
+      "sha512": "9dvt0xqRrClvhaPNpfyS39WxnW9G55l5lrV5ZX7IrEgwo4VwtmJKtoPiKVYKbhAuOBGUI5WY3hWLvF+PSbJp5A==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.debug/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Logging.Debug.dll",
+        "lib/net461/Microsoft.Extensions.Logging.Debug.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Debug.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Debug.xml",
+        "microsoft.extensions.logging.debug.5.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.debug.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Microsoft.Extensions.Options/5.0.0": {
       "sha512": "CBvR92TCJ5uBIdd9/HzDSrxYak+0W/3+yxrNg8Qm6Bmrkh5L+nu6m3WeazQehcZ5q1/6dDA7J5YdQjim0165zg==",
       "type": "package",
@@ -1537,6 +1571,7 @@
       "Microsoft.AspNetCore.SpaServices.Extensions >= 5.0.12",
       "Microsoft.EntityFrameworkCore >= 5.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.12",
+      "Microsoft.Extensions.Logging.Debug >= 5.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.10"
     ]
   },
@@ -1605,6 +1640,10 @@
             "target": "Package",
             "version": "[5.0.12, )"
           },
+          "Microsoft.Extensions.Logging.Debug": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[5.0.10, )"
@@ -1628,7 +1667,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

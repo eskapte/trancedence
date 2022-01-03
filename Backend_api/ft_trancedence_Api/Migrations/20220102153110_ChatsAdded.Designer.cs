@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ft_trancedence_Api.Models;
@@ -9,9 +10,10 @@ using ft_trancedence_Api.Models;
 namespace ft_trancedence_Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220102153110_ChatsAdded")]
+    partial class ChatsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,9 +88,6 @@ namespace ft_trancedence_Api.Migrations
                     b.Property<string>("AvatarUrl")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsOnline")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("text");
@@ -104,16 +103,14 @@ namespace ft_trancedence_Api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fdc3d630-4af3-4935-95f6-a27e04d38ab4"),
-                            IsOnline = false,
-                            PasswordHash = "$2b$10$U6ci3NWaKdgy8wOmbEOzmOIpVNQ029IGXLcO5I9kTQcjIcnt5Z2/K",
+                            Id = new Guid("c7e19d29-b919-4f4c-9287-c5da36df6a09"),
+                            PasswordHash = "$2b$10$760eyL.llbeilJwOisPkZOV8TkXpTZyRHVzqiflKnkB5H6PIiY38.",
                             Username = "test"
                         },
                         new
                         {
-                            Id = new Guid("726d486d-a30a-430c-b38a-1db6ea85068e"),
-                            IsOnline = false,
-                            PasswordHash = "$2b$10$Q1iS3k24BQ1tmMEC.7MhSenKW.T0huCQZqdSkPPA3C4hyXdDfAebW",
+                            Id = new Guid("7fbe3424-ca0e-4550-b5b3-fa38aceb7cb4"),
+                            PasswordHash = "$2b$10$a/8EC7vgX3zH5corDbjl9.uOqx9MiOwGt4M5mDohxFIo3keS/0pdy",
                             Username = "test1"
                         });
                 });

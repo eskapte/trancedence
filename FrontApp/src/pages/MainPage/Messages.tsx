@@ -11,7 +11,7 @@ const Messages: React.FC = () => {
                 <MenuBtn/>
                 <h2 className="header__text">Сообщения</h2>
             </header>
-			<SearchBar/>
+			<SearchBar name="chat-search" placeholder="Поиск сообщений или пользователей" onChange={() => {}}/>
 			<ChatList/>
         </section>
     )

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using backend_api.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,15 @@ namespace ft_trancedence_Api.Models.Auth
         public string Username { get; set; }
         [Required]
         public string PasswordHash { get; set; }
-        public string? AvatarUrl { get; set; }
+        public string AvatarUrl { get; set; }
+
+        public ICollection<Chat> Chats { get; set; }
+
+        public bool IsOnline { get; set; } = false;
+
+        public User()
+        {
+            Chats = new List<Chat>();
+        }
     }
 }

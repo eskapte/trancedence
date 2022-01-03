@@ -7,7 +7,6 @@ import { IChatPreview } from '../redux/chat/interfaces';
 import { RootReducerType } from "../redux/reducers";
 
 import defaultAvatar from "../assets/img/default-avatar.png"
-import { openChat } from '../redux/chat/actions';
 
 const OpenChat: React.FC = () => {
 
