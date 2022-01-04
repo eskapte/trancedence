@@ -24,6 +24,8 @@ namespace ft_trancedence_Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddControllers();
+
             services.AddDbContext<ApplicationDbContext>(builder => 
             {
                 builder.UseNpgsql(Configuration.GetConnectionString("DbConnection"));
@@ -50,7 +52,7 @@ namespace ft_trancedence_Api
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
                         ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Audeince"],
+                        ValidAudience = Configuration["Jwt:Audience"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
                 });
@@ -70,6 +72,7 @@ namespace ft_trancedence_Api
             app.UseCors();
 
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

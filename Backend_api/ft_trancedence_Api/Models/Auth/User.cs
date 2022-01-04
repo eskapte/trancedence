@@ -17,12 +17,14 @@ namespace ft_trancedence_Api.Models.Auth
         public string AvatarUrl { get; set; }
 
         public ICollection<Chat> Chats { get; set; }
+        public ICollection<User> Friends { get; set; }
 
         public bool IsOnline { get; set; } = false;
 
         public User()
         {
             Chats = new List<Chat>();
+            Friends = new List<User>();
         }
     }
 }

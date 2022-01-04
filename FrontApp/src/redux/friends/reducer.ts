@@ -1,21 +1,18 @@
-import { IFriendsState, IFriendsAction } from './interfaces';
+import { IFriendsState, IFriendsAction, friendsTypes } from './interfaces';
 
 
 const initialState: IFriendsState = {
     friendsList: [
         {
-            id: "1",
-            username: "Lhawick",
+            username: "Lhawick1",
             isOnline: false
         },
         {
-            id: "2",
-            username: "Lhawick",
+            username: "Lhawick2",
             isOnline: true
         },
         {
-            id: "3",
-            username: "Lhawick",
+            username: "Lhawick3",
             isOnline: false
         }
     ]
@@ -23,6 +20,10 @@ const initialState: IFriendsState = {
 
 export const FriendsReducer = (state: IFriendsState = initialState, action: IFriendsAction) : IFriendsState => {
     switch (action.type) {
+        case (friendsTypes.SEARCH_GLOBAL_USERS):
+            return {...state, findedUsers: action.payload}
+        case (friendsTypes.CLEAR_GLOBAL_USERS):
+            return {friendsList: state.friendsList}
         default:
             return state;
     }

@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ft_trancedence_Api.Controllers
 {
@@ -52,12 +55,15 @@ namespace ft_trancedence_Api.Controllers
             return Ok("Пользователь успешно создан!");
         }
 
+        //[Authorize]
         [HttpPost("logout")]
-        public async Task Logout([FromBody] string username)
+        public async Task Logout()
         {
+            string authUsername = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
             try
             {
-                await _userManager.Logout(username);
+                await _userManager.Logout(authUsername);
             }
             catch(Exception e)
             {

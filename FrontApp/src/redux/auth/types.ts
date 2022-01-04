@@ -39,5 +39,6 @@ export enum AuthActionTypes {
 
 export enum AuthSagasTypes {
     SEND_AUTH_FORM = "SEND_AUTH_FORM",
-    SEND_REG_FORM = "SEND_REG_FORM"
+    SEND_REG_FORM = "SEND_REG_FORM",
+    USER_LOGOUT = "USER_LOGOUT"
 }

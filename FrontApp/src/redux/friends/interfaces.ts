@@ -1,9 +1,9 @@
 export interface IFriendsState {
     friendsList: IFriend[]
+    findedUsers?: IFriend[]
 }
 
 export interface IFriend {
-    id: string
     username: string
     avatar?: string
     isOnline: boolean
@@ -11,13 +11,23 @@ export interface IFriend {
 
 export interface IFriendsAction {
     type: friendsTypes
-    payload?: IFriendsPayload
+    payload?: any
 }
 
 export enum friendsTypes {
-
+    SEARCH_GLOBAL_USERS = "SEARCH_GLOBAL_USERS",
+    CLEAR_GLOBAL_USERS = "CLEAR_GLOBAL_USERS"
 }
 
-export interface IFriendsPayload {
-    
+export enum FriendsSagaTypes {
+    SEARCH_FRIENDS = "SEARCH_FRIENDS"
+}
+
+export interface FriendsSearchSagaAction {
+    searchString: string
+}
+
+export interface IFriendsSagaAction {
+    type: FriendsSagaTypes
+    payload: string
 }

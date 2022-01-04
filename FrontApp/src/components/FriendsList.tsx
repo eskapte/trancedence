@@ -7,7 +7,7 @@ const FriendsList: React.FC<FriendsListProps> = (props) => {
         <div className="friends__list">
             <div className="friends__item">
                 {
-                    props.friendsList.map(friend => <FriendItem key={friend.id} {...friend}/>)
+                    props.friendsList.map(friend => <FriendItem key={friend.username} {...friend}/>)
                 }
             </div>
         </div>

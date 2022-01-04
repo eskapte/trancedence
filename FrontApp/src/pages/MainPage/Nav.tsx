@@ -1,13 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import { hideMenu } from '../../helpers';
 import { useDispatch, useSelector } from 'react-redux';
-import { AuthActionTypes } from "../../redux/auth/types";
+import { AuthSagasTypes } from '../../redux/auth/types';
 import { useNavigate } from 'react-router';
 import { RootReducerType } from '../../redux/reducers';
 import defaultAvatar from "../../assets/img/default-avatar.png"
-import { userLogout } from "../../api/functions";
 
 const Nav: React.FC = () => {
 
@@ -15,13 +13,10 @@ const Nav: React.FC = () => {
 	const navigate = useNavigate();
   
   const avatar = useSelector((state:RootReducerType) => state.auth.avatar)
-  const userUsername = useSelector((state:RootReducerType) => state.auth.username) ?? ""
 
   const logout = (e: any) => {
     e.preventDefault();
-    userLogout(userUsername)
-		localStorage.removeItem("userData")
-		dispatch({type: AuthActionTypes.LOGOUT})
+    dispatch({type: AuthSagasTypes.USER_LOGOUT})
 		navigate("/auth");
   };
 
@@ -70,6 +65,7 @@ const Nav: React.FC = () => {
         </svg>
         Настройки
       </NavLink>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a onClick={(e) => logout(e)}>
         <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
           <path d="M38.8747 20.2729C38.9468 20.0986 38.9468 19.9022 38.8747 19.7272C38.8383 19.6394 38.7854 19.5601 38.7197 19.4936L30.149 10.9236C29.8697 10.6444 29.4183 10.6444 29.139 10.9236C28.8597 11.2029 28.8597 11.6544 29.139 11.9336L36.4911 19.2858H14.644C14.2497 19.2858 13.9297 19.6051 13.9297 20.0001C13.9297 20.3951 14.2497 20.7144 14.644 20.7144H36.4911L29.139 28.0665C28.8597 28.3458 28.8597 28.7972 29.139 29.0765C29.2783 29.2158 29.4611 29.2858 29.644 29.2858C29.8268 29.2858 30.0097 29.2158 30.149 29.0765L38.7197 20.5058C38.7854 20.4401 38.8383 20.3608 38.8747 20.2729Z" />

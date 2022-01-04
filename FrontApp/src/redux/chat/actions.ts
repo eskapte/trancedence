@@ -5,15 +5,11 @@ export enum chatActionTypes {
     CHAT_CLOSE
 }
 
-export const openChat = (payload: IChatPayload): IChatAction => {
-    return {
-        type: chatActionTypes.CHAT_OPEN,
-        payload
-    }
-}
+export const openChat = (payload: IChatPayload): IChatAction => ({
+    type: chatActionTypes.CHAT_OPEN,
+    payload
+})
 
-export const closeChat = (payload: IChatPayload): IChatAction => {
-    return {
-        type: chatActionTypes.CHAT_CLOSE,
-    }
-}
+export const closeChat = (payload: IChatPayload): IChatAction => ({
+        type: chatActionTypes.CHAT_CLOSE
+})
